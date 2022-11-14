@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('head').load('importer.html');
+        });
+    </script>
+</head>
+<body>
+<section class="vh-100">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 text-black">
+                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                    <form style="width: 23rem;">
+                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">로그인</h3>
+
+                        <div class="form-outline mb-4">
+                            <input id="username" class="form-control form-control-lg" />
+                            <label class="form-label" for="username">아이디</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" class="form-control form-control-lg" />
+                            <label class="form-label" for="password">비밀번호</label>
+                        </div>
+
+                        <div class="pt-1 mb-4 row text-center">
+                            <div class="col">
+                                <button class="btn btn-info btn-lg btn-block" type="button" onclick="auth()">Login</button>
+                            </div>
+
+                            <div class="col">
+                                <button class="btn btn-success btn-lg btn-block" type="button"
+                                        onclick="location.href='/user/register.html'">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function auth() {
+        let userData = JSON.stringify({
+            username: $('#username').val(),
+            password: $('#password').val()
+        });
+
+        $.ajax({
+            url: "/user/auth",
+            type: "post",
+            data: userData,
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            success: function(data, status, xhr) {
+                if(data.message == 'success'){
+                    location.href='/board/showAll.html';
+                }
+                else if(data.message == 'fail'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: '로그인 실패',
+                        text: '아이디와 비밀번호를 다시 확인해주세요.'
+                    });
+                    $('#password').val("");
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
