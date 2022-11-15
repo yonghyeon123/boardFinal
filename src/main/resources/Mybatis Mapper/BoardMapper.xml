@@ -9,4 +9,11 @@
         INNER JOIN `user` AS u
         ON b.`writer_id` = u.`id`
     </select>
+
+    <select id="selectOne" resultType="hashMap">
+        SELECT b.`id`, b.`title`, b.`content`, u.`nickname`, b.`entry_date`, b.`modify_date`
+        FROM `board` AS b
+        INNER JOIN `user` AS u
+        ON b.`writer_id` = u.`id`
+    </select>
 </mapper>
