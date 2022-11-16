@@ -5,6 +5,7 @@ import com.aia.boardFinal.service.BoardService;
 import com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,6 +30,13 @@ public class BoardController {
         map.put("data", list);
 
         System.out.println(list);
+
+        return map;
+    }
+
+    @GetMapping("update")
+    public Map<String, Object> update(){
+        Map<String, Object> map = new HashMap<>();
 
         return map;
     }
