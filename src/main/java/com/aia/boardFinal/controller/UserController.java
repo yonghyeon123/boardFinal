@@ -59,4 +59,14 @@ public class UserController {
 
         return resultMap;
     }
+
+    @ResponseBody
+    @PostMapping("update")
+    public Map<String,Object> update(@RequestBody UserDTO userDTO){
+        Map<String, Object> resultMap = new HashMap<>();
+
+        userService.update(userDTO);
+
+        return resultMap;
+    }
 }

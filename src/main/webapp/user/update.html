@@ -59,6 +59,23 @@
     </section>
 
     <script>
+        function validatePassword() {
+            let original = $('#password').val();
+            let check = $('#passwordCheck').val();
+
+            if(original != check){
+                $('#passwordCheck').addClass('is-invalid');
+                $('#lblCheck').attr('for', 'floatingInputInvalid');
+                $('#lblCheck').text('비밀번호가 일치하지 않습니다.');
+                validPassword = false;
+            } else{
+                $('#passwordCheck').removeClass('is-invalid');
+                $('#lblCheck').attr('for', 'floatingInput');
+                $('#lblCheck').text('비밀번호를 재입력해주세요.');
+                validPassword = true;
+            }
+        }
+
         function update(){
             let userDate = JSON.stringify({
                  username = $('#username').val(),
@@ -66,6 +83,18 @@
                  nickname = $('#nickname').val()
             });
 
+            $.ajax({
+                url: "/user/update",
+                type: "post",
+                data: userDate,
+                dataType: "json";
+
+                success: function(data, status, xhr){
+                    if(data.message == "success"){
+
+                    }
+                }
+            });
 
         }
     </script>

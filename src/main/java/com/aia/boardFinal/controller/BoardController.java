@@ -33,11 +33,4 @@ public class BoardController {
 
         return map;
     }
-
-    @GetMapping("update")
-    public Map<String, Object> update(){
-        Map<String, Object> map = new HashMap<>();
-
-        return map;
-    }
 }
