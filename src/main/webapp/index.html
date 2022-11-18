@@ -61,7 +61,7 @@
             contentType: "application/json; charset=UTF-8",
             success: function(data, status, xhr) {
                 if(data.message == 'success'){
-                    location.href='/board/showAll.html';
+                    document.location.href='/board/showAll.html';
                 }
                 else if(data.message == 'fail'){
                     Swal.fire({

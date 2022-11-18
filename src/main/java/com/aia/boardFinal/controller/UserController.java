@@ -31,6 +31,8 @@ public class UserController {
             resultMap.put("message", "fail");
         }
 
+        System.out.println(resultMap.get("message"));
+
         return resultMap;
     }
 

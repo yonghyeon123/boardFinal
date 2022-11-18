@@ -17,7 +17,9 @@
         ON b.`writer_id` = u.`id`
     </select>
 
-    <update id="update" parameterMap="boardDTO">
-
+    <update id="update" parameterType="boardDTO">
+        UPDATE `board` SET
+        `title` = #{title}
+        WHERE `id` = #{id}
     </update>
 </mapper>
