@@ -16,6 +16,7 @@
             <div class="container-fluid justify-content-between">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="btn" onclick="logOut()">로그아웃</button>
+                <button class="btn" onclick="moveToUpdate()">회원 수정</button>
             </div>
         </nav>
 
@@ -55,6 +56,10 @@
                 }
             });
         });
+
+        function moveToUpdate(){
+            document.location.href='/user/update.html';
+        }
     </script>
 </body>
 </html>
