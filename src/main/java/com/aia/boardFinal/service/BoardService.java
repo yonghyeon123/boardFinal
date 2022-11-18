@@ -19,7 +19,7 @@ public class BoardService {
         return session.selectList(NAMESPACE + ".selectAll");
     }
 
-    public void update(UserDTO userDTO){
-        session.update(NAMESPACE + ".update", userDTO);
+    public void update(BoardDTO boardDTO){
+        session.update(NAMESPACE + ".update", boardDTO);
     }
 }

@@ -22,4 +22,8 @@ public class UserService {
     public void register(UserDTO userDTO){
         session.insert(NAMESPACE + ".register", userDTO);
     }
+
+    public void update(UserDTO userDTO){
+        session.update(NAMESPACE + ".update", userDTO);
+    }
 }

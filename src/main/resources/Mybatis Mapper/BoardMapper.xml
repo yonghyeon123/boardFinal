@@ -16,4 +16,8 @@
         INNER JOIN `user` AS u
         ON b.`writer_id` = u.`id`
     </select>
+
+    <update id="update" parameterMap="boardDTO">
+
+    </update>
 </mapper>
